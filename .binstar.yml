@@ -42,11 +42,9 @@ script: |
   echo "This is my binstar build!"
   conda install -c wakari nodejs
   cd bokehjs
-  npm install && node_modules/.bin/grunt deploy || exit 1
+  npm install
   cd ..
-  ln -s $(readlink -f bokehjs/build/js) bokeh/server/static/js
-  ln -s $(readlink -f bokehjs/build/css) bokeh/server/static/css
-  python setup.py sdist
+  python setup.py sdist --build_js
 
 ## This will run after the script regardless of the result of script
 ## BINSTAR_BUILD_RESULT=[succcess|failure]
