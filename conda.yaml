@@ -1,0 +1,27 @@
+{% set data = load_setuptools()%}
+package:
+  name: bokeh
+  version: 'nightly'
+
+build:
+  number: {{environ.get('BINSTAR_BUILD', 1)}}
+  script:
+    - cd $RECIPE_DIR
+    - $PYTHON setup.py install --build_js --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - numpy
+    - gevent-websocket       [py2k]
+    - flask
+    - pandas
+    - six
+    - pyyaml
+    - requests
+
+about:
+  home: https://github.com/ContinuumIO/Bokeh
+  license: New BSD

@@ -44,6 +44,7 @@ script: |
   cd bokehjs
   npm install
   cd ..
+  conda build .
   python setup.py sdist --build_js
 
 ## This will run after the script regardless of the result of script
