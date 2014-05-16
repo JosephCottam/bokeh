@@ -82,3 +82,6 @@ script: |
 build_targets:
   - conda
   - pypi
+channels:
+  - nightly
+
